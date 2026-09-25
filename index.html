@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bigarny Gutiérrez</title>
+<meta name="description" content="Portafolio de Bigarny Gutiérrez, estudiante de Ingeniería Industrial en la UAM, Managua.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --concrete: #E4E8EC;
+  --ink: #12233F;
+  --ink-soft: #4A5870;
+  --paper: #FFFFFF;
+  --cobalt: #2A45C9;
+  --hivis: #F2C200;
+  --laser: #E5322D;
+  --bg: var(--concrete);
+  --text: var(--ink);
+  --muted: var(--ink-soft);
+  --surface: var(--paper);
+  --link: var(--cobalt);
+  --rule: #C3CAD3;
+  --mark: var(--ink);
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3125rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2rem, 4vw, 2.75rem);
+  --step-4: clamp(2.75rem, 9vw, 7rem);
+  --gutter: clamp(16px, 4vw, 48px);
+  --measure: 38rem;
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1D35;
+    --text: #E4E8EC;
+    --muted: #A3AEBF;
+    --surface: #182A48;
+    --link: #9DB0FF;
+    --rule: #2C3F61;
+    --mark: var(--hivis);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1D35;
+  --text: #E4E8EC;
+  --muted: #A3AEBF;
+  --surface: #182A48;
+  --link: #9DB0FF;
+  --rule: #2C3F61;
+  --mark: var(--hivis);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Archivo", system-ui, sans-serif;
+  font-size: var(--step-0);
+  line-height: 1.55;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+a { color: var(--link); text-underline-offset: 0.18em; }
+:focus-visible { outline: 3px solid var(--hivis); outline-offset: 3px; border-radius: 2px; }
+p { margin: 0 0 1em; }
+[hidden] { display: none !important; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Cambio de idioma: el texto se desvanece y vuelve */
+[data-i18n] { transition: opacity 180ms ease; }
+body.swapping [data-i18n] { opacity: 0; }
+
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* Barra superior fija con la ruta de lectura */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 14px; padding-bottom: 14px;
+}
+.brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+.monogram {
+  font-weight: 900; font-size: var(--step-1);
+  font-variation-settings: "wdth" 125;
+  text-decoration: none; color: var(--text);
+}
+.here {
+  display: none; font-size: var(--step--1); font-weight: 600; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.here:not(:empty)::before { content: "/ "; color: var(--rule); }
+.nav { display: flex; gap: 22px; align-items: center; }
+.nav-link {
+  color: var(--text); text-decoration: none; font-size: var(--step--1); font-weight: 500;
+  padding-bottom: 3px;
+  background: linear-gradient(var(--mark), var(--mark)) 0 100% / 0 2px no-repeat;
+  transition: background-size 220ms var(--ease-out), opacity 180ms ease;
+}
+.nav-link:hover, .nav-link[aria-current="true"] { background-size: 100% 2px; }
+.nav-link[aria-current="true"] { background-size: 100% 3px; }
+@media (max-width: 760px) {
+  .nav .nav-link { display: none; }
+  .here { display: inline; }
+}
+
+.lang-toggle {
+  position: relative; display: inline-grid; grid-template-columns: 1fr 1fr;
+  font: inherit; font-size: 0.8125rem; font-weight: 700;
+  background: transparent; color: var(--text);
+  border: 1.5px solid var(--text); border-radius: 999px;
+  padding: 3px; cursor: pointer;
+}
+.lang-toggle span { position: relative; z-index: 1; padding: 3px 10px; transition: color 240ms ease; }
+.lang-toggle .knob {
+  position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px);
+  background: var(--text); border-radius: 999px;
+  transition: transform 260ms var(--ease-out);
+}
+.lang-toggle[data-lang="en"] .knob { transform: translateX(100%); }
+.lang-toggle[data-lang="es"] span:first-of-type,
+.lang-toggle[data-lang="en"] span:last-of-type { color: var(--bg); }
+
+.route { position: relative; height: 2px; }
+.route::before {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 12px);
+}
+.route-fill {
+  position: absolute; inset: 0; background: var(--text);
+  transform-origin: left; transform: scaleX(var(--p, 0));
+}
+.parcel {
+  position: absolute; top: -5px; width: 12px; height: 12px;
+  left: calc(var(--p, 0) * (100% - 12px));
+  background: var(--hivis); border: 2px solid var(--ink); border-radius: 2px;
+}
+
+main section[id] { scroll-margin-top: 72px; }
+
+/* Botones */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; font-weight: 700;
+  padding: 12px 20px; border-radius: 4px; border: 2px solid var(--text);
+  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), background-color 160ms ease;
+}
+.btn svg { width: 16px; height: 16px; flex: none; transition: transform 200ms var(--ease-out); }
+.btn-solid { background: var(--text); color: var(--bg); }
+.btn-line { color: var(--text); }
+@media (hover: hover) {
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--hivis); }
+  .btn-line:hover { background: var(--surface); }
+  .btn:hover svg { transform: translateY(2px); }
+}
+.btn:active { transform: translate(0, 0); box-shadow: 0 0 0 var(--hivis); }
+
+/* Inicio */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+  padding-top: clamp(40px, 8vw, 96px);
+  padding-bottom: clamp(64px, 10vw, 128px);
+}
+.hero h1 {
+  margin: 0 0 24px;
+  font-size: var(--step-4);
+  line-height: 0.92;
+  font-weight: 850;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -0.02em;
+}
+.hero h1 span { display: block; }
+.hero .lede { font-size: var(--step-1); max-width: 31rem; }
+.hero .actions { margin-top: 28px; }
+
+/* Etiqueta de envío */
+.label-wrap {
+  justify-self: center; width: 100%; max-width: 24rem;
+  animation: drop 650ms cubic-bezier(.2, .9, .3, 1.25) 150ms both;
+}
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-60px) rotate(-6deg); }
+  to   { opacity: 1; transform: none; }
+}
+.label {
+  --rx: 0deg; --ry: 0deg;
+  background: #FFFFFF; color: var(--ink);
+  border: 2px solid var(--ink); border-radius: 6px;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) rotate(-2.5deg);
+  transition: transform 220ms var(--ease-out);
+  box-shadow: 10px 12px 0 rgba(18, 35, 63, 0.18);
+  cursor: default;
+}
+.label-strip {
+  background: var(--hivis); border-bottom: 2px solid var(--ink);
+  border-radius: 4px 4px 0 0;
+  padding: 10px 16px; display: flex; justify-content: space-between; align-items: baseline;
+  font-variation-settings: "wdth" 70; font-weight: 800; font-size: var(--step-1);
+}
+.label-strip small { font-size: var(--step--1); font-weight: 600; }
+.label dl { margin: 0; }
+.label-row {
+  display: grid; grid-template-columns: 7.5rem 1fr; gap: 12px;
+  padding: 9px 16px; border-bottom: 1px solid var(--ink);
+  font-variation-settings: "wdth" 80;
+}
+.label-row dt { font-weight: 500; font-size: var(--step--1); color: #4A5870; padding-top: 2px; }
+.label-row dd { margin: 0; font-weight: 700; }
+.label-code { position: relative; padding: 14px 16px 12px; overflow: hidden; }
+.label-code svg { display: block; width: 100%; height: 64px; }
+.label-code p {
+  margin: 6px 0 0; text-align: center; font-weight: 700; letter-spacing: 0.3em;
+  font-variation-settings: "wdth" 70; font-size: var(--step--1);
+}
+.label-code p::after {
+  content: " ✓"; letter-spacing: 0; color: #1E7B3C;
+  display: inline-block; opacity: 0; transform: scale(0.4);
+  transition: opacity 200ms ease, transform 260ms cubic-bezier(.2, .9, .3, 1.4);
+}
+.label-code.scanned p::after { opacity: 1; transform: none; }
+.label-code::after {
+  content: ""; position: absolute; top: 10px; height: 72px; left: 0; width: 3px;
+  background: var(--laser); border-radius: 2px;
+  box-shadow: 0 0 10px 3px rgba(229, 50, 45, 0.55);
+  opacity: 0; pointer-events: none;
+}
+.label-code.scanning::after { animation: scan 850ms ease-in-out; }
+@keyframes scan {
+  0%   { opacity: 0; left: 16px; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { opacity: 0; left: calc(100% - 19px); }
+}
+
+/* Secciones */
+section.block {
+  padding-top: clamp(56px, 8vw, 104px);
+  padding-bottom: clamp(56px, 8vw, 104px);
+  border-top: 2px solid var(--text);
+}
+.block-head {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr);
+  gap: clamp(24px, 5vw, 64px);
+}
+.block h2 {
+  margin: 0; font-size: var(--step-3); line-height: 1.05; font-weight: 800;
+  font-variation-settings: "wdth" 112; letter-spacing: -0.01em;
+}
+.prose { max-width: var(--measure); }
+.prose > p:first-child { font-size: var(--step-1); line-height: 1.45; }
+@media (max-width: 760px) {
+  .hero, .block-head { grid-template-columns: 1fr; }
+  .label-wrap { max-width: 22rem; }
+}
+
+/* Aparición al hacer scroll */
+html.js:not(.reduce) [data-reveal] {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 560ms ease, transform 560ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+html.js:not(.reduce) [data-reveal].in { opacity: 1; transform: none; }
+
+/* Experiencia como historial de rastreo */
+.track-wrap { position: relative; max-width: 44rem; }
+.track { list-style: none; margin: 0; padding: 0; }
+.track-line {
+  position: absolute; left: 9px; width: 2px; background: var(--rule);
+  top: 14px; height: calc(100% - 14px);
+}
+.track-fill {
+  position: absolute; inset: 0; background: var(--text);
+  transform-origin: top; transform: scaleY(1);
+}
+.stop { position: relative; padding: 0 0 44px 44px; }
+.stop:last-child { padding-bottom: 0; }
+.stop::before {
+  content: ""; position: absolute; left: 0; top: 4px; z-index: 1;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--hivis); border: 2px solid var(--text);
+  transition: background-color 250ms ease, border-color 250ms ease, transform 300ms cubic-bezier(.2, .9, .3, 1.5);
+}
+html.js:not(.reduce) .stop:not(.lit)::before { background: var(--bg); border-color: var(--rule); transform: scale(0.8); }
+.when { margin: 0 0 8px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-weight: 600; color: var(--muted); font-size: var(--step--1); }
+.status {
+  font-size: var(--step--1); font-weight: 700; color: var(--text);
+  font-variation-settings: "wdth" 80;
+  padding: 1px 10px; border-radius: 999px; border: 1.5px solid var(--text);
+}
+.stop h3 { margin: 0; font-size: var(--step-2); line-height: 1.15; font-weight: 800; font-variation-settings: "wdth" 105; }
+.role { margin: 4px 0 0; font-weight: 600; }
+.where { margin: 2px 0 12px; color: var(--muted); font-size: 0.95rem; }
+.stop p:last-child { margin-bottom: 0; }
+.figures { display: flex; flex-wrap: wrap; gap: 32px; margin: 16px 0 0; }
+.figures div { font-variation-settings: "wdth" 80; }
+.figures dt { font-size: var(--step--1); color: var(--muted); }
+.figures dd { margin: 0; font-size: var(--step-2); font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+
+/* Proyecto */
+.project-card {
+  background: var(--surface); border: 2px solid var(--text); border-radius: 6px;
+  padding: clamp(20px, 4vw, 44px);
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+@media (hover: hover) {
+  .project-card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--text); }
+}
+.project-card h3 {
+  margin: 0 0 16px; font-size: var(--step-2); line-height: 1.15; font-weight: 800;
+  font-variation-settings: "wdth" 105; max-width: 30rem;
+}
+.steps {
+  list-style: none; padding: 0; margin: 40px 0 32px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
+  counter-reset: step;
+}
+.steps li {
+  counter-increment: step; padding: 18px 20px 18px 0; margin-right: 20px;
+  border-top: 2px solid var(--rule); position: relative;
+}
+.steps li::after {
+  content: ""; position: absolute; top: -2px; left: 0; right: 0; height: 2px;
+  background: var(--text); transform-origin: left; transform: scaleX(1);
+  transition: transform 420ms var(--ease-out);
+}
+.steps li::before {
+  content: counter(step);
+  display: grid; place-items: center; z-index: 1;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--text); color: var(--bg); border: 2px solid var(--text); font-weight: 800;
+  position: absolute; top: -17px; left: 0;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+.steps.complete li:last-child::before { content: "✓"; background: var(--hivis); color: var(--ink); border-color: var(--ink); }
+.steps strong, .steps span { transition: opacity 300ms ease; }
+.steps.pending li:not(.done)::after { transform: scaleX(0); }
+.steps.pending li:not(.done)::before { background: var(--surface); color: var(--muted); border-color: var(--rule); }
+.steps.pending li:not(.done) strong,
+.steps.pending li:not(.done) span { opacity: 0.4; }
+.steps li.done::before { animation: pop 320ms cubic-bezier(.2, .9, .3, 1.5); }
+@keyframes pop { 50% { transform: scale(1.2); } }
+.steps strong { display: block; margin-top: 18px; font-size: var(--step-1); font-variation-settings: "wdth" 105; }
+.steps span { display: block; color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 1180px) {
+  .steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+}
+@media (max-width: 480px) {
+  .steps { grid-template-columns: 1fr; }
+}
+.result {
+  border-left: 6px solid var(--hivis); padding: 6px 0 6px 18px; margin: 0;
+  font-size: var(--step-1); max-width: 36rem;
+}
+
+/* Recomendación */
+.rec-card {
+  position: relative; max-width: 44rem;
+  background: var(--surface); border: 2px solid var(--text); border-radius: 6px;
+  padding: clamp(28px, 4vw, 44px) clamp(20px, 4vw, 44px) clamp(20px, 3vw, 32px);
+  margin: 0;
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+@media (hover: hover) {
+  .rec-card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--text); }
+}
+.rec-card blockquote {
+  margin: 0; max-width: 36rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem); line-height: 1.42; font-weight: 500;
+}
+.rec-card blockquote p { margin: 0; }
+.rec-note { margin: 12px 0 0; font-size: var(--step--1); font-style: italic; color: var(--muted); }
+.rec-note:empty { display: none; }
+.rec-card figcaption {
+  margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+}
+.rec-name { display: block; font-weight: 800; font-variation-settings: "wdth" 105; }
+.rec-role { display: block; color: var(--muted); font-size: 0.95rem; }
+.stamp {
+  position: absolute; top: -20px; right: -18px;
+  padding: 6px 14px; border: 4px double var(--link); border-radius: 6px;
+  color: var(--link); font-weight: 900; font-size: 1.125rem; line-height: 1.2;
+  font-variation-settings: "wdth" 75; white-space: nowrap;
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  transform: rotate(-9deg);
+}
+@media (max-width: 760px) { .stamp { right: 12px; top: -22px; } }
+html.js:not(.reduce) .stamp:not(.stamped) { opacity: 0; }
+.stamp.stamped { animation: stamp 420ms cubic-bezier(.2, .9, .3, 1.2); }
+@keyframes stamp {
+  0%   { opacity: 0; transform: rotate(-3deg) scale(1.9); }
+  60%  { opacity: 1; transform: rotate(-10deg) scale(0.94); }
+  100% { opacity: 1; transform: rotate(-9deg) scale(1); }
+}
+.rec-card.thud { animation: thud 200ms ease-out 230ms; }
+@keyframes thud { 40% { transform: translateY(3px); } }
+
+/* Habilidades */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 48px; max-width: 44rem; }
+.skills h3 { margin: 0 0 10px; font-size: var(--step-0); font-weight: 800; font-variation-settings: "wdth" 105; }
+.skills ul { list-style: none; margin: 0; padding: 0; }
+.skills li {
+  position: relative; padding: 7px 0; border-bottom: 1px solid var(--rule);
+  transition: padding-left 200ms var(--ease-out), border-color 200ms ease;
+}
+.skills li::before {
+  content: ""; position: absolute; left: 0; top: 50%; width: 9px; height: 9px;
+  background: var(--hivis); border: 1.5px solid var(--ink); border-radius: 1px;
+  transform: translateY(-50%) scale(0); transition: transform 200ms cubic-bezier(.2, .9, .3, 1.5);
+}
+@media (hover: hover) {
+  .skills li:hover { padding-left: 18px; border-color: var(--text); }
+  .skills li:hover::before { transform: translateY(-50%) scale(1); }
+}
+@media (max-width: 520px) { .skills { grid-template-columns: 1fr; } }
+
+/* Contacto */
+.contact .prose { max-width: 40rem; }
+.avail {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: var(--step--1) !important;
+  padding: 5px 14px 5px 10px; border: 1.5px solid var(--text); border-radius: 999px;
+  margin-bottom: 20px;
+}
+.avail .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--hivis); border: 1.5px solid var(--ink); }
+.email {
+  display: inline-block; margin: 4px 0 18px;
+  font-size: clamp(1.25rem, 4.2vw, 2.25rem); font-weight: 800; line-height: 1.15;
+  font-variation-settings: "wdth" 85; overflow-wrap: anywhere;
+  color: var(--text); text-decoration: underline; text-decoration-color: var(--hivis);
+  text-decoration-thickness: 3px; text-underline-offset: 0.18em;
+  transition: text-decoration-thickness 200ms ease, text-underline-offset 200ms ease;
+}
+.email:hover { text-decoration-thickness: 6px; text-underline-offset: 0.12em; }
+
+.copy {
+  position: relative; display: inline-grid; overflow: hidden;
+  font: inherit; font-weight: 700; cursor: pointer;
+  background: transparent; color: var(--text);
+  border: 2px solid var(--text); border-radius: 4px; padding: 10px 18px;
+  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), color 200ms ease, border-color 200ms ease;
+}
+.copy::before {
+  content: ""; position: absolute; inset: 0; background: var(--hivis);
+  transform: scaleX(0); transform-origin: left; transition: transform 320ms var(--ease-out);
+}
+.copy > span {
+  grid-area: 1 / 1; position: relative; z-index: 1; text-align: center;
+  transition: opacity 220ms ease, transform 260ms var(--ease-out);
+}
+.copy .copy-done { opacity: 0; transform: translateY(110%); }
+.copy.done { color: var(--ink); border-color: var(--ink); }
+.copy.done::before { transform: scaleX(1); }
+.copy.done .copy-label { opacity: 0; transform: translateY(-110%); }
+.copy.done .copy-done { opacity: 1; transform: none; }
+@media (hover: hover) {
+  .copy:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--hivis); }
+}
+.copy:active { transform: none; box-shadow: none; }
+.copy-fail { display: block; margin-top: 10px; color: var(--muted); font-size: var(--step--1); }
+
+.channels { list-style: none; margin: 32px 0 0; padding: 0; max-width: 30rem; }
+.channels li {
+  display: grid; grid-template-columns: 7rem 1fr; gap: 12px; align-items: baseline;
+  padding: 10px 0; border-bottom: 1px solid var(--rule);
+}
+.channels li:first-child { border-top: 1px solid var(--rule); }
+.channels span { color: var(--muted); font-size: var(--step--1); }
+.channels a {
+  color: var(--text); font-weight: 700; text-decoration: none; justify-self: start;
+  background: linear-gradient(var(--mark), var(--mark)) 0 100% / 0 2px no-repeat;
+  transition: background-size 220ms var(--ease-out), opacity 180ms ease;
+}
+.channels a:hover { background-size: 100% 2px; }
+
+.cv { margin-top: 36px; }
+.cv h3 { margin: 0 0 12px; font-size: var(--step-0); font-weight: 800; font-variation-settings: "wdth" 105; }
+
+footer {
+  border-top: 2px solid var(--text);
+  padding-top: 24px; padding-bottom: 40px;
+  font-size: var(--step--1); color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; transition-delay: 0s !important; }
+  .label { transform: rotate(-2.5deg) !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap topbar">
+    <div class="brand">
+      <a class="monogram" href="#inicio" aria-label="Bigarny Gutiérrez">BG</a>
+      <span class="here" aria-hidden="true"></span>
+    </div>
+    <nav class="nav" aria-label="Principal" data-i18n-aria="navLabel">
+      <a class="nav-link" href="#sobre-mi" data-i18n="navAbout">Sobre mí</a>
+      <a class="nav-link" href="#experiencia" data-i18n="navExp">Experiencia</a>
+      <a class="nav-link" href="#proyecto" data-i18n="navProject">Proyecto</a>
+      <a class="nav-link" href="#referencia" data-i18n="navRec">Referencia</a>
+      <a class="nav-link" href="#habilidades" data-i18n="navSkills">Habilidades</a>
+      <a class="nav-link" href="#contacto" data-i18n="navContact">Contacto</a>
+      <button class="lang-toggle" id="langToggle" type="button" data-lang="es" aria-label="Switch to English">
+        <i class="knob" aria-hidden="true"></i><span>ES</span><span>EN</span>
+      </button>
+    </nav>
+  </div>
+  <div class="route" aria-hidden="true"><div class="route-fill"></div><div class="parcel"></div></div>
+</header>
+
+<main>
+  <section class="wrap hero" id="inicio">
+    <div>
+      <h1><span>Bigarny</span><span>Gutiérrez</span></h1>
+      <p class="lede" data-i18n="heroLede">Estudiante de Ingeniería Industrial en la UAM, con experiencia en logística de última milla: convertí reclamos dispersos en datos que Finanzas podía usar.</p>
+      <div class="actions">
+        <a class="btn btn-solid" id="heroCv" href="cv/CV-Bigarny-ES.pdf" download>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 6.5 8 10.5l4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <span data-i18n="ctaCv">Descargar CV</span>
+        </a>
+        <a class="btn btn-line" href="#proyecto"><span data-i18n="ctaProject">Ver el proyecto</span></a>
+      </div>
+    </div>
+
+    <div class="label-wrap">
+      <aside class="label" id="label" aria-label="Etiqueta de envío con un resumen de mi perfil" data-i18n-aria="labelAria">
+        <div class="label-strip">
+          <span data-i18n="labelTitle">Prioritario</span>
+          <small>MGA → Global</small>
+        </div>
+        <dl>
+          <div class="label-row"><dt data-i18n="lFrom">Remitente</dt><dd>Managua, Nicaragua</dd></div>
+          <div class="label-row"><dt data-i18n="lContent">Contenido</dt><dd data-i18n="lContentV">Procesos, datos y servicio al cliente</dd></div>
+          <div class="label-row"><dt data-i18n="lLang">Idiomas</dt><dd data-i18n="lLangV">Español e inglés</dd></div>
+          <div class="label-row"><dt data-i18n="lHandle">Manejar con</dt><dd data-i18n="lHandleV">Excel abierto</dd></div>
+          <div class="label-row"><dt data-i18n="lStatus">Estado</dt><dd data-i18n="lStatusV">Listo para despacho</dd></div>
+        </dl>
+        <div class="label-code" id="labelCode">
+          <svg id="barcode" viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true"></svg>
+          <p>BG 2003 UAM IND</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="wrap block" id="sobre-mi">
+    <div class="block-head">
+      <div data-reveal><h2 data-i18n="aboutTitle">Sobre mí</h2></div>
+      <div class="prose" data-reveal>
+        <p data-i18n="about1">Estudio Ingeniería Industrial en la Universidad Americana (UAM) en Managua. Me interesa lo que pasa entre que algo se promete y se entrega: los procesos, los datos y las personas que los sostienen.</p>
+        <p data-i18n="about2">Empecé en ventas y servicio al cliente en EE. UU., así que sé lo que siente un cliente cuando algo falla. En logística aprendí a verlo desde el otro lado: encontrar por qué falla y corregirlo en el proceso, no caso por caso.</p>
+        <p data-i18n="about3">Trabajo en español y en inglés todos los días.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block" id="experiencia">
+    <div class="block-head">
+      <div data-reveal><h2 data-i18n="expTitle">Experiencia</h2></div>
+      <div class="track-wrap" id="trackWrap">
+        <div class="track-line" aria-hidden="true"><div class="track-fill"></div></div>
+        <ol class="track">
+          <li class="stop" data-reveal>
+            <p class="when"><span class="status" data-i18n="statusPrev">Anterior</span><time datetime="2025-01/2026-08" data-i18n="uniDates">ene 2025 – ago 2026</time></p>
+            <h3>UniUni Express</h3>
+            <p class="role">Key Account Representative</p>
+            <p class="where" data-i18n="uniWhere">Remoto, vía WorkWiser Nicaragua</p>
+            <p data-i18n="uniDesc">Logística de última milla en EE. UU. Atendí cuentas clave y resolví sus casos de entregas, reclamos y créditos junto con operaciones y Finanzas.</p>
+            <dl class="figures" id="figures">
+              <div><dt data-i18n="figAccounts">Cuentas clave</dt><dd>~<span class="count" data-to="15">15</span></dd></div>
+              <div><dt data-i18n="figCases">Casos por semana</dt><dd><span class="count" data-to="40">40</span>–<span class="count" data-to="70">70</span></dd></div>
+            </dl>
+          </li>
+          <li class="stop" data-reveal>
+            <p class="when"><time datetime="2022-11/2023-03" data-i18n="toyDates">nov 2022 – mar 2023</time></p>
+            <h3>Toyota</h3>
+            <p class="role" data-i18n="roleSales">Asesor de ventas</p>
+            <p class="where" data-i18n="toyWhere">Automotriz, EE. UU.</p>
+          </li>
+          <li class="stop" data-reveal>
+            <p class="when"><time datetime="2022-06/2022-10" data-i18n="amzDates">jun – oct 2022</time></p>
+            <h3>Amazon</h3>
+            <p class="role" data-i18n="roleService">Servicio al cliente</p>
+            <p class="where" data-i18n="amzWhere">Comercio electrónico, EE. UU.</p>
+          </li>
+          <li class="stop" data-reveal>
+            <p class="when"><time datetime="2021-12/2022-04" data-i18n="nordDates">dic 2021 – abr 2022</time></p>
+            <h3>Nordstrom</h3>
+            <p class="role" data-i18n="roleSales">Asesor de ventas</p>
+            <p class="where" data-i18n="nordWhere">Retail, EE. UU.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block" id="proyecto">
+    <div class="block-head">
+      <div data-reveal><h2 data-i18n="projTitle">Proyecto destacado</h2></div>
+      <div data-reveal>
+        <article class="project-card">
+          <h3 data-i18n="projName">Reclamos y reportería de facturación en UniUni</h3>
+          <p class="prose" data-i18n="projProblem">Los reclamos llegaban por varios canales y quedaban repartidos entre correos, tickets y hojas sueltas. Era difícil saber cuánto había que acreditar y por qué se repetían los mismos problemas.</p>
+          <ol class="steps" id="steps">
+            <li><strong data-i18n="s1t">Consolidar</strong><span data-i18n="s1d">Reuní todos los reclamos dispersos en un solo tracker.</span></li>
+            <li><strong data-i18n="s2t">Clasificar</strong><span data-i18n="s2d">Etiqueté cada reclamo por causa raíz para ver qué se repetía.</span></li>
+            <li><strong data-i18n="s3t">Estimar</strong><span data-i18n="s3d">Preparé estimados de crédito a partir del tracker.</span></li>
+            <li><strong data-i18n="s4t">Reportar</strong><span data-i18n="s4d">Entregué un reporte semanal a Finanzas.</span></li>
+          </ol>
+          <p class="result" data-i18n="projResult">El resultado: una sola fuente para los reclamos, y Finanzas recibía cada semana los números listos para revisar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block" id="referencia">
+    <div class="block-head">
+      <div data-reveal><h2 data-i18n="recTitle">Referencia</h2></div>
+      <div data-reveal>
+        <figure class="rec-card" id="recCard">
+          <span class="stamp" id="stamp" data-i18n="recStamp">Verificado ✓</span>
+          <blockquote cite="cv/Carta-Recomendacion.pdf">
+            <p data-i18n="recQuote">“Lo que más me ha impresionado no es solo la capacidad de Bigarny para sacar el trabajo adelante, sino el sentido de responsabilidad con que lo asume. Entiende que detrás de cada consulta hay un cliente que depende de nosotros para obtener una respuesta o una solución.”</p>
+          </blockquote>
+          <p class="rec-note" data-i18n="recNote">Traducción del inglés</p>
+          <figcaption>
+            <span>
+              <span class="rec-name">Ashley McGrady</span>
+              <span class="rec-role" data-i18n="recRole">Key Account Manager en UniUni</span>
+            </span>
+            <a class="btn btn-line" href="cv/Carta-Recomendacion.pdf" download>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 6.5 8 10.5l4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <span data-i18n="recDl">Descargar carta completa (PDF)</span>
+            </a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block" id="habilidades">
+    <div class="block-head">
+      <div data-reveal><h2 data-i18n="skillsTitle">Habilidades</h2></div>
+      <div class="skills">
+        <div data-reveal>
+          <h3 data-i18n="skData">Datos y reportería</h3>
+          <ul><li data-i18n="skExcel">Excel avanzado</li><li>Power BI</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 data-i18n="skOps">Soporte y organización</h3>
+          <ul><li>Freshdesk</li><li>Notion</li><li>Google Workspace</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 data-i18n="skAuto">Automatización de procesos</h3>
+          <ul><li>Claude Code</li><li>Claude Cowork</li></ul>
+        </div>
+        <div data-reveal>
+          <h3 data-i18n="skLang">Idiomas</h3>
+          <ul><li data-i18n="skEs">Español</li><li data-i18n="skEn">Inglés</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block contact" id="contacto">
+    <div class="block-head">
+      <div data-reveal><h2 data-i18n="contactTitle">Contacto</h2></div>
+      <div class="prose" data-reveal>
+        <p class="avail"><span class="dot" aria-hidden="true"></span><span data-i18n="avail">Disponible para nuevas oportunidades</span></p>
+        <p data-i18n="contactText">¿Buscas a alguien que ordene procesos y atienda clientes en dos idiomas? Escríbeme.</p>
+        <a class="email" href="mailto:nanygutierrez2003@gmail.com">nanygutierrez2003<wbr>@gmail.com</a>
+        <div>
+          <button class="copy" id="copyBtn" type="button">
+            <span class="copy-label" data-i18n="copyBtn">Copiar correo</span>
+            <span class="copy-done" aria-hidden="true" data-i18n="copyDone">Entregado ✓</span>
+          </button>
+          <span class="sr-only" id="copyLive" role="status" aria-live="polite"></span>
+          <span class="copy-fail" id="copyFail" hidden></span>
+        </div>
+
+        <ul class="channels">
+          <li><span>WhatsApp</span><a href="https://wa.me/50586863416" target="_blank" rel="noopener">+505 8686 3416</a></li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/bigarny-gutierrez-20868629b" target="_blank" rel="noopener" data-i18n="liView">Ver perfil</a></li>
+        </ul>
+
+        <div class="cv">
+          <h3 data-i18n="cvTitle">Currículum</h3>
+          <div class="actions">
+            <a class="btn btn-line" href="cv/CV-Bigarny-ES.pdf" download>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 6.5 8 10.5l4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <span data-i18n="cvEs">CV en español (PDF)</span>
+            </a>
+            <a class="btn btn-line" href="cv/CV-Bigarny-EN.pdf" download>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 6.5 8 10.5l4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <span data-i18n="cvEn">CV en inglés (PDF)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p data-i18n="footer">© 2026 Bigarny Gutiérrez. Hecho en Managua.</p>
+</footer>
+
+<script>
+const T = {
+  es: {
+    navLabel: "Principal",
+    navAbout: "Sobre mí", navExp: "Experiencia", navProject: "Proyecto", navRec: "Referencia", navSkills: "Habilidades", navContact: "Contacto",
+    heroLede: "Estudiante de Ingeniería Industrial en la UAM, con experiencia en logística de última milla: convertí reclamos dispersos en datos que Finanzas podía usar.",
+    ctaCv: "Descargar CV", ctaProject: "Ver el proyecto",
+    labelAria: "Etiqueta de envío con un resumen de mi perfil",
+    labelTitle: "Prioritario",
+    lFrom: "Remitente", lContent: "Contenido", lContentV: "Procesos, datos y servicio al cliente",
+    lLang: "Idiomas", lLangV: "Español e inglés", lHandle: "Manejar con", lHandleV: "Excel abierto",
+    lStatus: "Estado", lStatusV: "Listo para despacho",
+    aboutTitle: "Sobre mí",
+    about1: "Estudio Ingeniería Industrial en la Universidad Americana (UAM) en Managua. Me interesa lo que pasa entre que algo se promete y se entrega: los procesos, los datos y las personas que los sostienen.",
+    about2: "Empecé en ventas y servicio al cliente en EE. UU., así que sé lo que siente un cliente cuando algo falla. En logística aprendí a verlo desde el otro lado: encontrar por qué falla y corregirlo en el proceso, no caso por caso.",
+    about3: "Trabajo en español y en inglés todos los días.",
+    expTitle: "Experiencia", statusPrev: "Anterior",
+    uniDates: "ene 2025 – ago 2026", uniWhere: "Remoto, vía WorkWiser Nicaragua",
+    uniDesc: "Logística de última milla en EE. UU. Atendí cuentas clave y resolví sus casos de entregas, reclamos y créditos junto con operaciones y Finanzas.",
+    figAccounts: "Cuentas clave", figCases: "Casos por semana",
+    toyDates: "nov 2022 – mar 2023", toyWhere: "Automotriz, EE. UU.",
+    amzDates: "jun – oct 2022", amzWhere: "Comercio electrónico, EE. UU.",
+    nordDates: "dic 2021 – abr 2022", nordWhere: "Retail, EE. UU.",
+    roleSales: "Asesor de ventas", roleService: "Servicio al cliente",
+    projTitle: "Proyecto destacado",
+    projName: "Reclamos y reportería de facturación en UniUni",
+    projProblem: "Los reclamos llegaban por varios canales y quedaban repartidos entre correos, tickets y hojas sueltas. Era difícil saber cuánto había que acreditar y por qué se repetían los mismos problemas.",
+    s1t: "Consolidar", s1d: "Reuní todos los reclamos dispersos en un solo tracker.",
+    s2t: "Clasificar", s2d: "Etiqueté cada reclamo por causa raíz para ver qué se repetía.",
+    s3t: "Estimar", s3d: "Preparé estimados de crédito a partir del tracker.",
+    s4t: "Reportar", s4d: "Entregué un reporte semanal a Finanzas.",
+    projResult: "El resultado: una sola fuente para los reclamos, y Finanzas recibía cada semana los números listos para revisar.",
+    recTitle: "Referencia", recStamp: "Verificado ✓",
+    recQuote: "“Lo que más me ha impresionado no es solo la capacidad de Bigarny para sacar el trabajo adelante, sino el sentido de responsabilidad con que lo asume. Entiende que detrás de cada consulta hay un cliente que depende de nosotros para obtener una respuesta o una solución.”",
+    recNote: "Traducción del inglés", recRole: "Key Account Manager en UniUni",
+    recDl: "Descargar carta completa (PDF)",
+    skillsTitle: "Habilidades", skData: "Datos y reportería", skExcel: "Excel avanzado",
+    skOps: "Soporte y organización", skAuto: "Automatización de procesos",
+    skLang: "Idiomas", skEs: "Español", skEn: "Inglés",
+    contactTitle: "Contacto", avail: "Disponible para nuevas oportunidades",
+    contactText: "¿Buscas a alguien que ordene procesos y atienda clientes en dos idiomas? Escríbeme.",
+    copyBtn: "Copiar correo", copyDone: "Entregado ✓", copied: "Correo copiado",
+    copyFail: "No se pudo copiar. Selecciona el correo y cópialo a mano.",
+    liView: "Ver perfil",
+    cvTitle: "Currículum", cvEs: "CV en español (PDF)", cvEn: "CV en inglés (PDF)",
+    footer: "© 2026 Bigarny Gutiérrez. Hecho en Managua.",
+    toggleAria: "Switch to English",
+    metaDesc: "Portafolio de Bigarny Gutiérrez, estudiante de Ingeniería Industrial en la UAM, Managua."
+  },
+  en: {
+    navLabel: "Main",
+    navAbout: "About", navExp: "Experience", navProject: "Project", navRec: "Reference", navSkills: "Skills", navContact: "Contact",
+    heroLede: "Industrial Engineering student at UAM with experience in last-mile logistics, where I turned scattered claims into data Finance could act on.",
+    ctaCv: "Download CV", ctaProject: "See the project",
+    labelAria: "Shipping label summarizing my profile",
+    labelTitle: "Priority",
+    lFrom: "Ships from", lContent: "Contents", lContentV: "Processes, data and customer service",
+    lLang: "Languages", lLangV: "Spanish and English", lHandle: "Handle with", lHandleV: "Excel open",
+    lStatus: "Status", lStatusV: "Ready to ship",
+    aboutTitle: "About me",
+    about1: "I study Industrial Engineering at Universidad Americana (UAM) in Managua. I care about what happens between a promise and a delivery: the processes, the data, and the people who keep them running.",
+    about2: "I started in sales and customer service in the US, so I know how a customer feels when something goes wrong. Logistics taught me to see it from the other side: finding out why it fails and fixing the process, not just the case.",
+    about3: "I work in Spanish and English every day.",
+    expTitle: "Experience", statusPrev: "Previous",
+    uniDates: "Jan 2025 – Aug 2026", uniWhere: "Remote, through WorkWiser Nicaragua",
+    uniDesc: "Last-mile logistics in the US. I managed key accounts and resolved their delivery, claims and credit cases with operations and Finance.",
+    figAccounts: "Key accounts", figCases: "Cases per week",
+    toyDates: "Nov 2022 – Mar 2023", toyWhere: "Automotive, US",
+    amzDates: "Jun – Oct 2022", amzWhere: "E-commerce, US",
+    nordDates: "Dec 2021 – Apr 2022", nordWhere: "Retail, US",
+    roleSales: "Sales associate", roleService: "Customer service",
+    projTitle: "Featured project",
+    projName: "Claims and billing reports at UniUni",
+    projProblem: "Claims came in through several channels and ended up spread across emails, tickets and loose spreadsheets. It was hard to tell how much needed to be credited and why the same problems kept coming back.",
+    s1t: "Consolidate", s1d: "Pulled every scattered claim into a single tracker.",
+    s2t: "Classify", s2d: "Tagged each claim by root cause to see what kept repeating.",
+    s3t: "Estimate", s3d: "Prepared credit estimates from the tracker.",
+    s4t: "Report", s4d: "Delivered a weekly report to Finance.",
+    projResult: "The result: one place for every claim, and Finance received the numbers each week, ready to review.",
+    recTitle: "Reference", recStamp: "Verified ✓",
+    recQuote: "“What has impressed me most is not simply Bigarny’s ability to complete the work, but the level of ownership he brings to it. He understands that behind every inquiry is a client relying on us for an answer or resolution.”",
+    recNote: "", recRole: "Key Account Manager, UniUni",
+    recDl: "Download full letter (PDF)",
+    skillsTitle: "Skills", skData: "Data and reporting", skExcel: "Advanced Excel",
+    skOps: "Support and organization", skAuto: "Process automation",
+    skLang: "Languages", skEs: "Spanish", skEn: "English",
+    contactTitle: "Contact", avail: "Open to new opportunities",
+    contactText: "Looking for someone who organizes processes and serves customers in two languages? Email me.",
+    copyBtn: "Copy email", copyDone: "Delivered ✓", copied: "Email copied",
+    copyFail: "Couldn't copy. Select the address and copy it manually.",
+    liView: "View profile",
+    cvTitle: "Résumé", cvEs: "CV in Spanish (PDF)", cvEn: "CV in English (PDF)",
+    footer: "© 2026 Bigarny Gutiérrez. Made in Managua.",
+    toggleAria: "Cambiar a español",
+    metaDesc: "Portfolio of Bigarny Gutiérrez, Industrial Engineering student at UAM, Managua."
+  }
+};
+
+const root = document.documentElement;
+const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+let reduced = motionQuery.matches;
+root.classList.add("js");
+root.classList.toggle("reduce", reduced);
+
+/* ---------- Idioma ---------- */
+let lang = "es";
+try {
+  const saved = localStorage.getItem("lang");
+  if (saved === "es" || saved === "en") lang = saved;
+  else if (!(navigator.language || "").toLowerCase().startsWith("es")) lang = "en";
+} catch (e) {}
+
+const toggle = document.getElementById("langToggle");
+const heroCv = document.getElementById("heroCv");
+
+function applyTexts(l) {
+  const t = T[l];
+  root.lang = l;
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t[el.dataset.i18n]; });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => { el.setAttribute("aria-label", t[el.dataset.i18nAria]); });
+  document.querySelector('meta[name="description"]').setAttribute("content", t.metaDesc);
+  toggle.setAttribute("aria-label", t.toggleAria);
+  heroCv.href = "cv/CV-Bigarny-" + l.toUpperCase() + ".pdf";
+  document.getElementById("copyFail").hidden = true;
+  updateHere(false);
+  layoutTrack();
+}
+
+function setLang(l, animate) {
+  lang = l;
+  toggle.dataset.lang = l;
+  if (!animate || reduced) { applyTexts(l); return; }
+  document.body.classList.add("swapping");
+  setTimeout(() => {
+    applyTexts(l);
+    requestAnimationFrame(() => document.body.classList.remove("swapping"));
+  }, 180);
+}
+
+toggle.addEventListener("click", () => {
+  setLang(lang === "es" ? "en" : "es", true);
+  try { localStorage.setItem("lang", lang); } catch (e) {}
+});
+
+/* ---------- Código de barras y escaneo ---------- */
+(function drawBarcode() {
+  const svg = document.getElementById("barcode");
+  let x = 0, bars = "";
+  for (const ch of "BG2003UAMIND") {
+    const c = ch.charCodeAt(0);
+    for (let i = 0; i < 4; i++) {
+      const w = ((c >> i) & 3) + 1;
+      if (i % 2 === 0) bars += `<rect x="${x}" y="0" width="${w * 1.6}" height="64" fill="#12233F"/>`;
+      x += w * 1.6 + 1.2;
+    }
+  }
+  svg.setAttribute("viewBox", `0 0 ${x} 64`);
+  svg.innerHTML = bars;
+})();
+
+const label = document.getElementById("label");
+const labelCode = document.getElementById("labelCode");
+let scannedTimer;
+function scan() {
+  if (reduced || labelCode.classList.contains("scanning")) return;
+  labelCode.classList.remove("scanned");
+  labelCode.classList.add("scanning");
+}
+labelCode.addEventListener("animationend", e => {
+  if (e.animationName !== "scan") return;
+  labelCode.classList.remove("scanning");
+  labelCode.classList.add("scanned");
+  clearTimeout(scannedTimer);
+  scannedTimer = setTimeout(() => labelCode.classList.remove("scanned"), 1800);
+});
+label.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") scan(); });
+label.addEventListener("click", scan);
+setTimeout(scan, 950);
+
+/* Inclinación 3D siguiendo el mouse */
+const hero = document.getElementById("inicio");
+hero.addEventListener("pointermove", e => {
+  if (reduced || !finePointer.matches || e.pointerType !== "mouse") return;
+  const r = label.getBoundingClientRect();
+  const clamp = v => Math.max(-1, Math.min(1, v));
+  const x = clamp((e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2));
+  const y = clamp((e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2));
+  label.style.setProperty("--ry", (x * 9).toFixed(2) + "deg");
+  label.style.setProperty("--rx", (-y * 7).toFixed(2) + "deg");
+});
+hero.addEventListener("pointerleave", () => {
+  label.style.setProperty("--rx", "0deg");
+  label.style.setProperty("--ry", "0deg");
+});
+
+/* ---------- Aparición al hacer scroll ---------- */
+document.querySelectorAll("section.block").forEach(sec => {
+  sec.querySelectorAll("[data-reveal]").forEach((el, i) => el.style.setProperty("--i", Math.min(i, 4)));
+});
+const revealIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("in");
+    revealIO.unobserve(e.target);
+  });
+}, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+document.querySelectorAll("[data-reveal]").forEach(el => revealIO.observe(el));
+
+/* ---------- Ruta de lectura y línea de tiempo ---------- */
+const header = document.querySelector(".site-header");
+const trackWrap = document.getElementById("trackWrap");
+const trackLine = trackWrap.querySelector(".track-line");
+const trackFill = trackWrap.querySelector(".track-fill");
+const stops = [...trackWrap.querySelectorAll(".stop")];
+const DOT = 14; // centro del punto respecto al inicio de cada parada
+let lineTop = 0, lineH = 0;
+
+function layoutTrack() {
+  const first = stops[0], last = stops[stops.length - 1];
+  lineTop = first.offsetTop + DOT;
+  lineH = last.offsetTop - first.offsetTop;
+  trackLine.style.top = lineTop + "px";
+  trackLine.style.height = lineH + "px";
+  updateScroll();
+}
+
+function updateScroll() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+  header.style.setProperty("--p", p.toFixed(4));
+
+  const r = trackWrap.getBoundingClientRect();
+  const anchor = window.innerHeight * 0.62;
+  const filled = reduced ? lineH : Math.max(0, Math.min(lineH, anchor - (r.top + lineTop)));
+  trackFill.style.transform = `scaleY(${lineH ? filled / lineH : 1})`;
+  stops.forEach(li => {
+    li.classList.toggle("lit", reduced || anchor >= r.top + li.offsetTop + DOT);
+  });
+}
+
+let ticking = false;
+window.addEventListener("scroll", () => {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => { ticking = false; updateScroll(); });
+}, { passive: true });
+window.addEventListener("resize", layoutTrack);
+if (document.fonts) document.fonts.ready.then(layoutTrack);
+
+/* ---------- Menú: sección actual ---------- */
+const navLinks = [...document.querySelectorAll(".nav-link")];
+const here = document.querySelector(".here");
+let currentId = "";
+function updateHere(animate) {
+  const a = navLinks.find(l => l.getAttribute("href") === "#" + currentId);
+  const text = a ? a.textContent : "";
+  if (here.textContent === text) return;
+  here.textContent = text;
+  if (animate && !reduced && text) {
+    here.animate([{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }], { duration: 220, easing: "ease-out" });
+  }
+}
+function setActive(id) {
+  currentId = id;
+  navLinks.forEach(a => {
+    if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "true");
+    else a.removeAttribute("aria-current");
+  });
+  updateHere(true);
+}
+const navIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id === "inicio" ? "" : e.target.id); });
+}, { rootMargin: "-40% 0px -55% 0px" });
+document.querySelectorAll("main section[id]").forEach(s => navIO.observe(s));
+
+/* ---------- Contadores ---------- */
+const counters = [...document.querySelectorAll(".count")];
+function countUp(el) {
+  const to = Number(el.dataset.to);
+  if (reduced) { el.textContent = to; return; }
+  const start = performance.now(), dur = 1100;
+  const step = now => {
+    const t = Math.min(1, (now - start) / dur);
+    el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3)));
+    if (t < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+if (!reduced) counters.forEach(el => { el.textContent = "0"; });
+const countIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    counters.forEach(countUp);
+    countIO.disconnect();
+  });
+}, { rootMargin: "0px 0px -20% 0px" });
+countIO.observe(document.getElementById("figures"));
+
+/* ---------- Pasos del proyecto como estados de rastreo ---------- */
+const steps = document.getElementById("steps");
+const stepItems = [...steps.children];
+if (reduced) {
+  steps.classList.add("complete");
+} else {
+  steps.classList.add("pending");
+  const stepsIO = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    stepsIO.disconnect();
+    stepItems.forEach((li, i) => setTimeout(() => {
+      li.classList.add("done");
+      if (i === stepItems.length - 1) steps.classList.add("complete");
+    }, 200 + i * 380));
+  }, { rootMargin: "0px 0px -30% 0px" });
+  stepsIO.observe(steps);
+}
+
+/* ---------- Sello de recomendación ---------- */
+const stamp = document.getElementById("stamp");
+const recCard = document.getElementById("recCard");
+if (!reduced) {
+  const stampIO = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    stampIO.disconnect();
+    setTimeout(() => { stamp.classList.add("stamped"); recCard.classList.add("thud"); }, 450);
+  }, { rootMargin: "0px 0px -30% 0px" });
+  stampIO.observe(recCard);
+}
+
+/* ---------- Copiar correo ---------- */
+const EMAIL = "nanygutierrez2003@gmail.com";
+const copyBtn = document.getElementById("copyBtn");
+const copyLive = document.getElementById("copyLive");
+const copyFail = document.getElementById("copyFail");
+let copyTimer;
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const ta = document.createElement("textarea");
+  ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  const ok = document.execCommand("copy");
+  ta.remove();
+  if (!ok) throw new Error("copy failed");
+}
+copyBtn.addEventListener("click", async () => {
+  try {
+    await copyText(EMAIL);
+    copyFail.hidden = true;
+    copyBtn.classList.add("done");
+    copyLive.textContent = T[lang].copied;
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => { copyBtn.classList.remove("done"); copyLive.textContent = ""; }, 2400);
+  } catch (e) {
+    copyFail.textContent = T[lang].copyFail;
+    copyFail.hidden = false;
+  }
+});
+
+/* Si cambia la preferencia de movimiento mientras la página está abierta */
+motionQuery.addEventListener("change", e => {
+  reduced = e.matches;
+  root.classList.toggle("reduce", reduced);
+  updateScroll();
+});
+
+setLang(lang, false);
+</script>
+</body>
+</html>
