@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bigarny Gutiérrez</title>
-  <meta property="og:title" content="Bigarny Gutiérrez | Portafolio">
-<meta property="og:description" content="Ingeniería Industrial · Mejora de procesos, reportería y KPI · Español e inglés">
+<meta property="og:title" content="Bigarny Gutiérrez | Portafolio">
+<meta property="og:description" content="Coordinación de operaciones · Seguimiento de casos · Automatización con IA · Español e inglés">
 <meta property="og:image" content="https://bigarnygutierrez.github.io/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta property="og:url" content="https://bigarnygutierrez.github.io">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="Portafolio de Bigarny Gutiérrez, estudiante de Ingeniería Industrial en la UAM, Managua.">
+<meta name="description" content="Portafolio de Bigarny Gutiérrez: coordinación de operaciones, seguimiento de casos y automatización con IA. Managua, Nicaragua.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -378,6 +378,10 @@ html.js:not(.reduce) .stop:not(.lit)::before { background: var(--bg); border-col
 @media (max-width: 480px) {
   .steps { grid-template-columns: 1fr; }
 }
+.project-card + .project-card { margin-top: 28px; }
+.proj-points { list-style: none; padding: 0; margin: 28px 0 32px; display: grid; gap: 12px; max-width: 40rem; }
+.proj-points li { position: relative; padding-left: 28px; color: var(--text); }
+.proj-points li::before { content: "→"; position: absolute; left: 0; top: 0; font-weight: 800; color: var(--hivis); }
 .result {
   border-left: 6px solid var(--hivis); padding: 6px 0 6px 18px; margin: 0;
   font-size: var(--step-1); max-width: 36rem;
@@ -531,7 +535,7 @@ footer {
     <nav class="nav" aria-label="Principal" data-i18n-aria="navLabel">
       <a class="nav-link" href="#sobre-mi" data-i18n="navAbout">Sobre mí</a>
       <a class="nav-link" href="#experiencia" data-i18n="navExp">Experiencia</a>
-      <a class="nav-link" href="#proyecto" data-i18n="navProject">Proyecto</a>
+      <a class="nav-link" href="#proyecto" data-i18n="navProject">Proyectos</a>
       <a class="nav-link" href="#referencia" data-i18n="navRec">Referencia</a>
       <a class="nav-link" href="#habilidades" data-i18n="navSkills">Habilidades</a>
       <a class="nav-link" href="#contacto" data-i18n="navContact">Contacto</a>
@@ -547,13 +551,13 @@ footer {
   <section class="wrap hero" id="inicio">
     <div>
       <h1><span>Bigarny</span><span>Gutiérrez</span></h1>
-      <p class="lede" data-i18n="heroLede">Estudiante de Ingeniería Industrial en la UAM, con experiencia en logística de última milla: convertí reclamos dispersos en datos que Finanzas podía usar.</p>
+      <p class="lede" data-i18n="heroLede">Coordino operaciones con seguimiento puntual y registros al día: más de un año llevando de 40 a 70 casos por semana en logística de última milla en EE. UU., y construyendo herramientas con IA que le quitan lo repetitivo al equipo.</p>
       <div class="actions">
         <a class="btn btn-solid" id="heroCv" href="cv/CV-Bigarny-ES.pdf" download>
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v9M4 6.5 8 10.5l4-4M2 14h12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
           <span data-i18n="ctaCv">Descargar CV</span>
         </a>
-        <a class="btn btn-line" href="#proyecto"><span data-i18n="ctaProject">Ver el proyecto</span></a>
+        <a class="btn btn-line" href="#proyecto"><span data-i18n="ctaProject">Ver los proyectos</span></a>
       </div>
     </div>
 
@@ -565,7 +569,7 @@ footer {
         </div>
         <dl>
           <div class="label-row"><dt data-i18n="lFrom">Remitente</dt><dd>Managua, Nicaragua</dd></div>
-          <div class="label-row"><dt data-i18n="lContent">Contenido</dt><dd data-i18n="lContentV">Procesos, datos y servicio al cliente</dd></div>
+          <div class="label-row"><dt data-i18n="lContent">Contenido</dt><dd data-i18n="lContentV">Coordinación, seguimiento y automatización con IA</dd></div>
           <div class="label-row"><dt data-i18n="lLang">Idiomas</dt><dd data-i18n="lLangV">Español e inglés</dd></div>
           <div class="label-row"><dt data-i18n="lHandle">Manejar con</dt><dd data-i18n="lHandleV">Excel abierto</dd></div>
           <div class="label-row"><dt data-i18n="lStatus">Estado</dt><dd data-i18n="lStatusV">Listo para despacho</dd></div>
@@ -584,7 +588,7 @@ footer {
       <div class="prose" data-reveal>
         <p data-i18n="about1">Estudio Ingeniería Industrial en la Universidad Americana (UAM) en Managua. Me interesa lo que pasa entre que algo se promete y se entrega: los procesos, los datos y las personas que los sostienen.</p>
         <p data-i18n="about2">Empecé en ventas y servicio al cliente en EE. UU., así que sé lo que siente un cliente cuando algo falla. En logística aprendí a verlo desde el otro lado: encontrar por qué falla y corregirlo en el proceso, no caso por caso.</p>
-        <p data-i18n="about3">Trabajo en español y en inglés todos los días.</p>
+        <p data-i18n="about3">Trabajo en español y en inglés todos los días. Uso IA para quitarme lo repetitivo (borradores, resúmenes, seguimientos), con una regla fija: una persona revisa y envía todo lo que sale.</p>
       </div>
     </div>
   </section>
@@ -631,7 +635,7 @@ footer {
 
   <section class="wrap block" id="proyecto">
     <div class="block-head">
-      <div data-reveal><h2 data-i18n="projTitle">Proyecto destacado</h2></div>
+      <div data-reveal><h2 data-i18n="projTitle">Proyectos</h2></div>
       <div data-reveal>
         <article class="project-card">
           <h3 data-i18n="projName">Reclamos y reportería de facturación en UniUni</h3>
@@ -643,6 +647,18 @@ footer {
             <li><strong data-i18n="s4t">Reportar</strong><span data-i18n="s4d">Entregué un reporte semanal a Finanzas.</span></li>
           </ol>
           <p class="result" data-i18n="projResult">El resultado: una sola fuente para los reclamos, y Finanzas recibía cada semana los números listos para revisar.</p>
+        </article>
+        <article class="project-card">
+          <h3 data-i18n="p2Name">Xolo Run: CRM de cuentas clave y agentes de IA</h3>
+          <p class="prose" data-i18n="p2Problem">El contacto con organizadores de carreras vivía en chats de Instagram y WhatsApp, y no había una vista única de quién respondió y a quién tocaba escribir.</p>
+          <ul class="proj-points"><li data-i18n="p2a">Un CRM compartido que clasifica solo a 24 organizadores: confirmados, respondieron, no contestan y sin mensaje.</li><li data-i18n="p2b">Lista «Para hoy» con pasos vencidos y un botón que copia el mensaje y agenda el siguiente seguimiento a 4 días.</li><li data-i18n="p2c">Una automatización lee los DMs lunes y jueves en solo lectura y actualiza los leads. La IA nunca responde: lo envía una persona.</li><li data-i18n="p2d">Reportes semanales en lenguaje simple, con las fallas señaladas a tiempo.</li></ul>
+          <p class="result" data-i18n="p2Result">El resultado: una vista única de quién sigue y por qué, con cada seguimiento agendado.</p>
+        </article>
+        <article class="project-card">
+          <h3 data-i18n="p3Name">GCO Active Wear: inventario y caja desde un iPad</h3>
+          <p class="prose" data-i18n="p3Problem">Una marca de ropa fitness que vende por Instagram y WhatsApp necesitaba saber su stock, sus ventas y cuánto falta para recuperar la inversión, sin enredos.</p>
+          <ul class="proj-points"><li data-i18n="p3a">App web sobre Google Sheets (Apps Script) que se instala en el iPad: venta, entrada, devolución, dañado o regalo con unos toques.</li><li data-i18n="p3b">Códigos únicos por talla, color y prenda. Un set completo es el mínimo de sus piezas, con alertas de agotado e incompleto.</li><li data-i18n="p3c">Ganancia por venta, total invertido y lo que falta por recuperar, en dólares y córdobas.</li><li data-i18n="p3d">Deshacer, bloqueo para que dos personas no se pisen y un asistente en ChatGPT para consultar o anotar por chat.</li></ul>
+          <p class="result" data-i18n="p3Result">El resultado: la dueña maneja inventario y dinero sin fórmulas, con una guía paso a paso.</p>
         </article>
       </div>
     </div>
@@ -683,11 +699,11 @@ footer {
         </div>
         <div data-reveal>
           <h3 data-i18n="skOps">Soporte y organización</h3>
-          <ul><li>Freshdesk</li><li>Notion</li><li>Google Workspace</li></ul>
+          <ul><li>Freshdesk</li><li>ClickUp</li><li>Slack</li><li>Notion</li><li>Google Workspace</li></ul>
         </div>
         <div data-reveal>
-          <h3 data-i18n="skAuto">Automatización de procesos</h3>
-          <ul><li>Claude Code</li><li>Claude Cowork</li></ul>
+          <h3 data-i18n="skAuto">Automatización e IA</h3>
+          <ul><li>Claude Code</li><li>Claude Cowork</li><li>Google Apps Script</li></ul>
         </div>
         <div data-reveal>
           <h3 data-i18n="skLang">Idiomas</h3>
@@ -702,7 +718,7 @@ footer {
       <div data-reveal><h2 data-i18n="contactTitle">Contacto</h2></div>
       <div class="prose" data-reveal>
         <p class="avail"><span class="dot" aria-hidden="true"></span><span data-i18n="avail">Disponible para nuevas oportunidades</span></p>
-        <p data-i18n="contactText">¿Buscas a alguien que ordene procesos y atienda clientes en dos idiomas? Escríbeme.</p>
+        <p data-i18n="contactText">¿Buscas a alguien que mantenga la operación en orden, con seguimiento y registros al día, y que use IA para lo repetitivo? Escríbeme.</p>
         <a class="email" href="mailto:nanygutierrez2003@gmail.com">nanygutierrez2003<wbr>@gmail.com</a>
         <div>
           <button class="copy" id="copyBtn" type="button">
@@ -744,18 +760,18 @@ footer {
 const T = {
   es: {
     navLabel: "Principal",
-    navAbout: "Sobre mí", navExp: "Experiencia", navProject: "Proyecto", navRec: "Referencia", navSkills: "Habilidades", navContact: "Contacto",
-    heroLede: "Estudiante de Ingeniería Industrial en la UAM, con experiencia en logística de última milla: convertí reclamos dispersos en datos que Finanzas podía usar.",
-    ctaCv: "Descargar CV", ctaProject: "Ver el proyecto",
+    navAbout: "Sobre mí", navExp: "Experiencia", navProject: "Proyectos", navRec: "Referencia", navSkills: "Habilidades", navContact: "Contacto",
+    heroLede: "Coordino operaciones con seguimiento puntual y registros al día: más de un año llevando de 40 a 70 casos por semana en logística de última milla en EE. UU., y construyendo herramientas con IA que le quitan lo repetitivo al equipo.",
+    ctaCv: "Descargar CV", ctaProject: "Ver los proyectos",
     labelAria: "Etiqueta de envío con un resumen de mi perfil",
     labelTitle: "Prioritario",
-    lFrom: "Remitente", lContent: "Contenido", lContentV: "Procesos, datos y servicio al cliente",
+    lFrom: "Remitente", lContent: "Contenido", lContentV: "Coordinación, seguimiento y automatización con IA",
     lLang: "Idiomas", lLangV: "Español e inglés", lHandle: "Manejar con", lHandleV: "Excel abierto",
     lStatus: "Estado", lStatusV: "Listo para despacho",
     aboutTitle: "Sobre mí",
     about1: "Estudio Ingeniería Industrial en la Universidad Americana (UAM) en Managua. Me interesa lo que pasa entre que algo se promete y se entrega: los procesos, los datos y las personas que los sostienen.",
     about2: "Empecé en ventas y servicio al cliente en EE. UU., así que sé lo que siente un cliente cuando algo falla. En logística aprendí a verlo desde el otro lado: encontrar por qué falla y corregirlo en el proceso, no caso por caso.",
-    about3: "Trabajo en español y en inglés todos los días.",
+    about3: "Trabajo en español y en inglés todos los días. Uso IA para quitarme lo repetitivo (borradores, resúmenes, seguimientos), con una regla fija: una persona revisa y envía todo lo que sale.",
     expTitle: "Experiencia", statusPrev: "Anterior",
     uniDates: "ene 2025 – ago 2026", uniWhere: "Remoto, vía WorkWiser Nicaragua",
     uniDesc: "Logística de última milla en EE. UU. Atendí cuentas clave y resolví sus casos de entregas, reclamos y créditos junto con operaciones y Finanzas.",
@@ -764,7 +780,7 @@ const T = {
     amzDates: "jun – oct 2022", amzWhere: "Comercio electrónico, EE. UU.",
     nordDates: "dic 2021 – abr 2022", nordWhere: "Retail, EE. UU.",
     roleSales: "Asesor de ventas", roleService: "Servicio al cliente",
-    projTitle: "Proyecto destacado",
+    projTitle: "Proyectos",
     projName: "Reclamos y reportería de facturación en UniUni",
     projProblem: "Los reclamos llegaban por varios canales y quedaban repartidos entre correos, tickets y hojas sueltas. Era difícil saber cuánto había que acreditar y por qué se repetían los mismos problemas.",
     s1t: "Consolidar", s1d: "Reuní todos los reclamos dispersos en un solo tracker.",
@@ -772,37 +788,51 @@ const T = {
     s3t: "Estimar", s3d: "Preparé estimados de crédito a partir del tracker.",
     s4t: "Reportar", s4d: "Entregué un reporte semanal a Finanzas.",
     projResult: "El resultado: una sola fuente para los reclamos, y Finanzas recibía cada semana los números listos para revisar.",
+    p2Name: "Xolo Run: CRM de cuentas clave y agentes de IA",
+    p2Problem: "El contacto con organizadores de carreras vivía en chats de Instagram y WhatsApp, y no había una vista única de quién respondió y a quién tocaba escribir.",
+    p2a: "Un CRM compartido que clasifica solo a 24 organizadores: confirmados, respondieron, no contestan y sin mensaje.",
+    p2b: "Lista «Para hoy» con pasos vencidos y un botón que copia el mensaje y agenda el siguiente seguimiento a 4 días.",
+    p2c: "Una automatización lee los DMs lunes y jueves en solo lectura y actualiza los leads. La IA nunca responde: lo envía una persona.",
+    p2d: "Reportes semanales en lenguaje simple, con las fallas señaladas a tiempo.",
+    p2Result: "El resultado: una vista única de quién sigue y por qué, con cada seguimiento agendado.",
+    p3Name: "GCO Active Wear: inventario y caja desde un iPad",
+    p3Problem: "Una marca de ropa fitness que vende por Instagram y WhatsApp necesitaba saber su stock, sus ventas y cuánto falta para recuperar la inversión, sin enredos.",
+    p3a: "App web sobre Google Sheets (Apps Script) que se instala en el iPad: venta, entrada, devolución, dañado o regalo con unos toques.",
+    p3b: "Códigos únicos por talla, color y prenda. Un set completo es el mínimo de sus piezas, con alertas de agotado e incompleto.",
+    p3c: "Ganancia por venta, total invertido y lo que falta por recuperar, en dólares y córdobas.",
+    p3d: "Deshacer, bloqueo para que dos personas no se pisen y un asistente en ChatGPT para consultar o anotar por chat.",
+    p3Result: "El resultado: la dueña maneja inventario y dinero sin fórmulas, con una guía paso a paso.",
     recTitle: "Referencia", recStamp: "Verificado ✓",
     recQuote: "“Lo que más me ha impresionado no es solo la capacidad de Bigarny para sacar el trabajo adelante, sino el sentido de responsabilidad con que lo asume. Entiende que detrás de cada consulta hay un cliente que depende de nosotros para obtener una respuesta o una solución.”",
     recNote: "Traducción del inglés", recRole: "Key Account Manager en UniUni",
     recDl: "Descargar carta completa (PDF)",
     skillsTitle: "Habilidades", skData: "Datos y reportería", skExcel: "Excel avanzado",
-    skOps: "Soporte y organización", skAuto: "Automatización de procesos",
+    skOps: "Soporte y organización", skAuto: "Automatización e IA",
     skLang: "Idiomas", skEs: "Español", skEn: "Inglés",
     contactTitle: "Contacto", avail: "Disponible para nuevas oportunidades",
-    contactText: "¿Buscas a alguien que ordene procesos y atienda clientes en dos idiomas? Escríbeme.",
+    contactText: "¿Buscas a alguien que mantenga la operación en orden, con seguimiento y registros al día, y que use IA para lo repetitivo? Escríbeme.",
     copyBtn: "Copiar correo", copyDone: "Entregado ✓", copied: "Correo copiado",
     copyFail: "No se pudo copiar. Selecciona el correo y cópialo a mano.",
     liView: "Ver perfil",
     cvTitle: "Currículum", cvEs: "CV en español (PDF)", cvEn: "CV en inglés (PDF)",
     footer: "© 2026 Bigarny Gutiérrez. Hecho en Managua.",
     toggleAria: "Switch to English",
-    metaDesc: "Portafolio de Bigarny Gutiérrez, estudiante de Ingeniería Industrial en la UAM, Managua."
+    metaDesc: "Portafolio de Bigarny Gutiérrez: coordinación de operaciones, seguimiento de casos y automatización con IA. Managua, Nicaragua."
   },
   en: {
     navLabel: "Main",
-    navAbout: "About", navExp: "Experience", navProject: "Project", navRec: "Reference", navSkills: "Skills", navContact: "Contact",
-    heroLede: "Industrial Engineering student at UAM with experience in last-mile logistics, where I turned scattered claims into data Finance could act on.",
-    ctaCv: "Download CV", ctaProject: "See the project",
+    navAbout: "About", navExp: "Experience", navProject: "Projects", navRec: "Reference", navSkills: "Skills", navContact: "Contact",
+    heroLede: "I coordinate operations with tight follow-up and clean records: 1.5+ years handling 40 to 70 cases a week in U.S. last-mile logistics, and building AI tools that take the repetitive work off the team.",
+    ctaCv: "Download CV", ctaProject: "See the projects",
     labelAria: "Shipping label summarizing my profile",
     labelTitle: "Priority",
-    lFrom: "Ships from", lContent: "Contents", lContentV: "Processes, data and customer service",
+    lFrom: "Ships from", lContent: "Contents", lContentV: "Coordination, follow-up and AI automation",
     lLang: "Languages", lLangV: "Spanish and English", lHandle: "Handle with", lHandleV: "Excel open",
     lStatus: "Status", lStatusV: "Ready to ship",
     aboutTitle: "About me",
     about1: "I study Industrial Engineering at Universidad Americana (UAM) in Managua. I care about what happens between a promise and a delivery: the processes, the data, and the people who keep them running.",
     about2: "I started in sales and customer service in the US, so I know how a customer feels when something goes wrong. Logistics taught me to see it from the other side: finding out why it fails and fixing the process, not just the case.",
-    about3: "I work in Spanish and English every day.",
+    about3: "I work in Spanish and English every day. I use AI for repetitive work (drafts, summaries, follow-ups), with one fixed rule: a person reviews and sends everything that goes out.",
     expTitle: "Experience", statusPrev: "Previous",
     uniDates: "Jan 2025 – Aug 2026", uniWhere: "Remote, through WorkWiser Nicaragua",
     uniDesc: "Last-mile logistics in the US. I managed key accounts and resolved their delivery, claims and credit cases with operations and Finance.",
@@ -811,7 +841,7 @@ const T = {
     amzDates: "Jun – Oct 2022", amzWhere: "E-commerce, US",
     nordDates: "Dec 2021 – Apr 2022", nordWhere: "Retail, US",
     roleSales: "Sales associate", roleService: "Customer service",
-    projTitle: "Featured project",
+    projTitle: "Projects",
     projName: "Claims and billing reports at UniUni",
     projProblem: "Claims came in through several channels and ended up spread across emails, tickets and loose spreadsheets. It was hard to tell how much needed to be credited and why the same problems kept coming back.",
     s1t: "Consolidate", s1d: "Pulled every scattered claim into a single tracker.",
@@ -819,22 +849,36 @@ const T = {
     s3t: "Estimate", s3d: "Prepared credit estimates from the tracker.",
     s4t: "Report", s4d: "Delivered a weekly report to Finance.",
     projResult: "The result: one place for every claim, and Finance received the numbers each week, ready to review.",
+    p2Name: "Xolo Run: key-account CRM and AI agents",
+    p2Problem: "Contact with race organizers lived in Instagram and WhatsApp chats, and there was no single view of who had replied and who to write to next.",
+    p2a: "A shared CRM that sorts 24 organizers on its own: confirmed, replied, no reply and not yet contacted.",
+    p2b: "A “Today” list with overdue steps and a button that copies the message and schedules the next follow-up in 4 days.",
+    p2c: "An automation reads DMs on Mondays and Thursdays, read-only, and updates the leads. The AI never replies: a person sends.",
+    p2d: "Weekly reports in plain language, with problems flagged early.",
+    p2Result: "The result: one view of who is next and why, with every follow-up scheduled.",
+    p3Name: "GCO Active Wear: inventory and cash from an iPad",
+    p3Problem: "A fitness apparel brand that sells through Instagram and WhatsApp needed to know its stock, its sales and how much is left to recover the investment, without the mess.",
+    p3a: "A web app on Google Sheets (Apps Script) installed on the iPad: sale, restock, return, damaged or gift in a few taps.",
+    p3b: "Unique codes by size, color and piece. A complete set is the minimum of its pieces, with sold-out and incomplete alerts.",
+    p3c: "Profit per sale, total invested and what is left to recover, in dollars and córdobas.",
+    p3d: "Undo, locking so two people can’t overwrite each other, and a ChatGPT assistant to check or record by chat.",
+    p3Result: "The result: the owner runs inventory and money without formulas, with a step-by-step guide.",
     recTitle: "Reference", recStamp: "Verified ✓",
     recQuote: "“What has impressed me most is not simply Bigarny’s ability to complete the work, but the level of ownership he brings to it. He understands that behind every inquiry is a client relying on us for an answer or resolution.”",
     recNote: "", recRole: "Key Account Manager, UniUni",
     recDl: "Download full letter (PDF)",
     skillsTitle: "Skills", skData: "Data and reporting", skExcel: "Advanced Excel",
-    skOps: "Support and organization", skAuto: "Process automation",
+    skOps: "Support and organization", skAuto: "Automation and AI",
     skLang: "Languages", skEs: "Spanish", skEn: "English",
     contactTitle: "Contact", avail: "Open to new opportunities",
-    contactText: "Looking for someone who organizes processes and serves customers in two languages? Email me.",
+    contactText: "Looking for someone who keeps the operation moving, with tight follow-up and clean records, and who uses AI for the repetitive work? Email me.",
     copyBtn: "Copy email", copyDone: "Delivered ✓", copied: "Email copied",
     copyFail: "Couldn't copy. Select the address and copy it manually.",
     liView: "View profile",
     cvTitle: "Résumé", cvEs: "CV in Spanish (PDF)", cvEn: "CV in English (PDF)",
     footer: "© 2026 Bigarny Gutiérrez. Made in Managua.",
     toggleAria: "Cambiar a español",
-    metaDesc: "Portfolio of Bigarny Gutiérrez, Industrial Engineering student at UAM, Managua."
+    metaDesc: "Portfolio of Bigarny Gutiérrez: operations coordination, case follow-through and AI automation. Managua, Nicaragua."
   }
 };
 
