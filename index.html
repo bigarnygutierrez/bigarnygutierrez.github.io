@@ -379,6 +379,10 @@ html.js:not(.reduce) .stop:not(.lit)::before { background: var(--bg); border-col
   .steps { grid-template-columns: 1fr; }
 }
 .project-card + .project-card { margin-top: 28px; }
+.proj-shots { margin: 0 0 32px; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+.proj-shots img { flex: 1 1 200px; min-width: 0; max-width: 100%; width: 100%; height: auto; border: 2px solid var(--text); border-radius: 6px; }
+.proj-shots.ig img:first-of-type { flex-basis: 100%; }
+.proj-shots figcaption { flex-basis: 100%; font-size: 0.9rem; color: var(--muted); }
 .proj-points { list-style: none; padding: 0; margin: 28px 0 32px; display: grid; gap: 12px; max-width: 40rem; }
 .proj-points li { position: relative; padding-left: 28px; color: var(--text); }
 .proj-points li::before { content: "→"; position: absolute; left: 0; top: 0; font-weight: 800; color: var(--hivis); }
@@ -652,12 +656,21 @@ footer {
           <h3 data-i18n="p2Name">Xolo Run: CRM de cuentas clave y agentes de IA</h3>
           <p class="prose" data-i18n="p2Problem">El contacto con organizadores de carreras vivía en chats de Instagram y WhatsApp, y no había una vista única de quién respondió y a quién tocaba escribir.</p>
           <ul class="proj-points"><li data-i18n="p2a">Un CRM compartido que clasifica solo a 24 organizadores: confirmados, respondieron, no contestan y sin mensaje.</li><li data-i18n="p2b">Lista «Para hoy» con pasos vencidos y un botón que copia el mensaje y agenda el siguiente seguimiento a 4 días.</li><li data-i18n="p2c">Una automatización lee los DMs lunes y jueves en solo lectura y actualiza los leads. La IA nunca responde: lo envía una persona.</li><li data-i18n="p2d">Reportes semanales en lenguaje simple, con las fallas señaladas a tiempo.</li></ul>
+          <figure class="proj-shots"><img src="img/pwa-bienvenida.jpg" alt="Xolo Run app" loading="lazy" decoding="async"><img src="img/pwa-carreras.jpg" alt="Xolo Run app" loading="lazy" decoding="async"><figcaption data-i18n="capPwa">La app de Xolo Run: bienvenida y catálogo de carreras.</figcaption></figure>
           <p class="result" data-i18n="p2Result">El resultado: una vista única de quién sigue y por qué, con cada seguimiento agendado.</p>
+        </article>
+        <article class="project-card">
+          <h3 data-i18n="p4Name">Xolo Run: contenido y alcance en Instagram</h3>
+          <p class="prose" data-i18n="p4Problem">Una app nueva y sin audiencia necesitaba que corredores y organizadores supieran que existía y por qué les servía.</p>
+          <ul class="proj-points"><li data-i18n="p4a">Reels de marca para la lista de espera, la encuesta, la beta, las carreras (La Gran Navideña, Inferno) y los organizadores.</li><li data-i18n="p4b">Diez reels suman unas 358,000 vistas. Los más vistos: 113K, 99.2K y 51.4K.</li><li data-i18n="p4c">Mensajes separados: para corredores («Inscribirte no debería ser una carrera») y para organizadores («Tu carrera, sin WhatsApp ni Excel»).</li><li data-i18n="p4d">La cuenta @xolorun tiene 793 seguidores en 15 publicaciones.</li></ul>
+          <figure class="proj-shots ig"><img src="img/ig-perfil.jpg" alt="Instagram @xolorun" loading="lazy" decoding="async"><img src="img/ig-reels-1.jpg" alt="Instagram @xolorun" loading="lazy" decoding="async"><img src="img/ig-reels-2.jpg" alt="Instagram @xolorun" loading="lazy" decoding="async"><figcaption data-i18n="capIg">Perfil de @xolorun y sus reels, con las vistas de cada uno.</figcaption></figure>
+          <p class="result" data-i18n="p4Result">El resultado: más de 350 mil vistas en reels y una audiencia propia para una app que acaba de abrir.</p>
         </article>
         <article class="project-card">
           <h3 data-i18n="p3Name">GCO Active Wear: inventario y caja desde un iPad</h3>
           <p class="prose" data-i18n="p3Problem">Una marca de ropa fitness que vende por Instagram y WhatsApp necesitaba saber su stock, sus ventas y cuánto falta para recuperar la inversión, sin enredos.</p>
           <ul class="proj-points"><li data-i18n="p3a">App web sobre Google Sheets (Apps Script) que se instala en el iPad: venta, entrada, devolución, dañado o regalo con unos toques.</li><li data-i18n="p3b">Códigos únicos por talla, color y prenda. Un set completo es el mínimo de sus piezas, con alertas de agotado e incompleto.</li><li data-i18n="p3c">Ganancia por venta, total invertido y lo que falta por recuperar, en dólares y córdobas.</li><li data-i18n="p3d">Deshacer, bloqueo para que dos personas no se pisen y un asistente en ChatGPT para consultar o anotar por chat.</li></ul>
+          <figure class="proj-shots"><img src="img/gco-panel.jpg" alt="GCO Active Wear app" loading="lazy" decoding="async"><img src="img/gco-stock.jpg" alt="GCO Active Wear app" loading="lazy" decoding="async"><figcaption data-i18n="capGco">La app de GCO: panel con sets completos y stock por talla.</figcaption></figure>
           <p class="result" data-i18n="p3Result">El resultado: la dueña maneja inventario y dinero sin fórmulas, con una guía paso a paso.</p>
         </article>
       </div>
@@ -802,6 +815,16 @@ const T = {
     p3c: "Ganancia por venta, total invertido y lo que falta por recuperar, en dólares y córdobas.",
     p3d: "Deshacer, bloqueo para que dos personas no se pisen y un asistente en ChatGPT para consultar o anotar por chat.",
     p3Result: "El resultado: la dueña maneja inventario y dinero sin fórmulas, con una guía paso a paso.",
+    p4Name: "Xolo Run: contenido y alcance en Instagram",
+    p4Problem: "Una app nueva y sin audiencia necesitaba que corredores y organizadores supieran que existía y por qué les servía.",
+    p4a: "Reels de marca para la lista de espera, la encuesta, la beta, las carreras (La Gran Navideña, Inferno) y los organizadores.",
+    p4b: "Diez reels suman unas 358,000 vistas. Los más vistos: 113K, 99.2K y 51.4K.",
+    p4c: "Mensajes separados: para corredores («Inscribirte no debería ser una carrera») y para organizadores («Tu carrera, sin WhatsApp ni Excel»).",
+    p4d: "La cuenta @xolorun tiene 793 seguidores en 15 publicaciones.",
+    p4Result: "El resultado: más de 350 mil vistas en reels y una audiencia propia para una app que acaba de abrir.",
+    capPwa: "La app de Xolo Run: bienvenida y catálogo de carreras.",
+    capIg: "Perfil de @xolorun y sus reels, con las vistas de cada uno.",
+    capGco: "La app de GCO: panel con sets completos y stock por talla.",
     recTitle: "Referencia", recStamp: "Verificado ✓",
     recQuote: "“Lo que más me ha impresionado no es solo la capacidad de Bigarny para sacar el trabajo adelante, sino el sentido de responsabilidad con que lo asume. Entiende que detrás de cada consulta hay un cliente que depende de nosotros para obtener una respuesta o una solución.”",
     recNote: "Traducción del inglés", recRole: "Key Account Manager en UniUni",
@@ -863,6 +886,16 @@ const T = {
     p3c: "Profit per sale, total invested and what is left to recover, in dollars and córdobas.",
     p3d: "Undo, locking so two people can’t overwrite each other, and a ChatGPT assistant to check or record by chat.",
     p3Result: "The result: the owner runs inventory and money without formulas, with a step-by-step guide.",
+    p4Name: "Xolo Run: content and reach on Instagram",
+    p4Problem: "A new app with no audience needed runners and organizers to know it existed and why it was useful to them.",
+    p4a: "Brand reels for the waitlist, the survey, the beta, the races (La Gran Navideña, Inferno) and organizers.",
+    p4b: "Ten reels add up to about 358,000 views. The top three: 113K, 99.2K and 51.4K.",
+    p4c: "Separate messages: for runners (“Signing up shouldn’t be a race”) and for organizers (“Your race, without WhatsApp or Excel”).",
+    p4d: "The @xolorun account has 793 followers across 15 posts.",
+    p4Result: "The result: over 350K reel views and an audience of its own for an app that just opened.",
+    capPwa: "The Xolo Run app: welcome screen and race catalog.",
+    capIg: "The @xolorun profile and its reels, with views for each.",
+    capGco: "The GCO app: dashboard with complete sets and stock by size.",
     recTitle: "Reference", recStamp: "Verified ✓",
     recQuote: "“What has impressed me most is not simply Bigarny’s ability to complete the work, but the level of ownership he brings to it. He understands that behind every inquiry is a client relying on us for an answer or resolution.”",
     recNote: "", recRole: "Key Account Manager, UniUni",
